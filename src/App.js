@@ -6,6 +6,8 @@ import RegisterForm from './components/RegisterForm/RegisterForm';
 import LogoutForm from './components/LogoutForm/LogoutForm';
 import CustomerForm from './components/CustomerForm/CustomerForm';
 import AddCustomerForm from './components/CustomerForm/AddCustomerForm';
+import Protected from './components/Protected';
+
 
 function App() {
   return (
@@ -15,8 +17,8 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/logout" element={<LogoutForm />} />
-          <Route path="/customer" element={<CustomerForm/>} />
-          <Route path="/addcustomer" element={<AddCustomerForm/>} />
+          <Route path="/customer" element={<Protected Component={CustomerForm}/>} />
+          <Route path="/addcustomer" element={<Protected Component={AddCustomerForm}/>} />
         </Routes>
         
       </div>
