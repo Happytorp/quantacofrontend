@@ -25,10 +25,9 @@ const handleRegister = async (event) => {
 
       const data = await response.json();
       console.log('Success:', data);
-      // Handle success, e.g., redirect or show a success message
     } catch (error) {
+      alert("Invalid Details entered");
       console.error('Error:', error.message);
-      // Handle error, e.g., show an error message to the user
     }
   };
 

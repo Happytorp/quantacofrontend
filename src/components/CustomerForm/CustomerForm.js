@@ -9,20 +9,18 @@ const CustomerList = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        // Navigate to the "/addcustomer" route
         navigate('/addcustomer');
     };
     const [customerData, setCustomerData] = useState([]);
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
 
     useEffect(() => {
-        // Fetch data from the API
         fetch('http://localhost:8000/customer/listCustomer', {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
                 'Content-Type': 'application/json',
             },
-            credentials: 'include',  // Add this line
+            credentials: 'include', //for cors error
         })
             .then((response) => response.json())
             .then((data) => setCustomerData(data))
@@ -51,7 +49,6 @@ const CustomerList = () => {
                                 <th>Date of Birth</th>
                                 <th>Phone Number</th>
                                 <th>User Name</th>
-                                {/* Add more headers if needed */}
                             </tr>
                         </thead>
                         <tbody>
@@ -63,7 +60,6 @@ const CustomerList = () => {
                                     <td>{customer.date_of_birth}</td>
                                     <td>{customer.phone_number}</td>
                                     <td>{customer.user_name}</td>
-                                    {/* Add more cells if needed */}
                                 </tr>
                             ))}
                         </tbody>

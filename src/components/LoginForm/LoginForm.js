@@ -30,7 +30,6 @@ const handleLogin = async (event) => {
     } catch (error) {
         alert("Invalid Credentials");
       console.error('Error:', error.message);
-      // Handle error, e.g., show an error message to the user
     }
   };
 
